@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Logo from "../ui/Logo";
 
 export default function LoadingScreen({ onComplete }) {
   return (
@@ -13,9 +14,9 @@ export default function LoadingScreen({ onComplete }) {
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-5xl font-bold mb-6"
+          className="mb-6 flex justify-center"
         >
-          RM<span className="gradient-text">.</span>
+          <Logo className="h-16 w-16" />
         </motion.div>
 
         <div className="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden mx-auto">

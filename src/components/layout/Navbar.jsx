@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { navLinks } from "../../utils/animations";
 import { SITE_MAX_WIDTH } from "./Container";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "../ui/Logo";
 
 const headerLinkPadding = "px-5 py-3";
 
@@ -38,9 +39,7 @@ export default function Navbar() {
             to="/"
             className={`inline-flex items-center shrink-0 ${headerLinkPadding} -ml-3 lg:ml-0`}
           >
-            <span className="text-2xl font-bold tracking-tight leading-none">
-              RM<span className="gradient-text">.</span>
-            </span>
+            <Logo className="h-9 w-9" />
           </Link>
 
           <ul className="hidden lg:flex flex-1 items-center justify-evenly max-w-4xl w-full mx-auto px-4">

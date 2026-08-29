@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon, FacebookIcon } from "../ui/SocialIcons";
 import Container from "./Container";
+import Logo from "../ui/Logo";
 import { personalInfo } from "../../data/personal";
 
 const socialIcons = [
@@ -22,9 +23,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-between gap-10 md:gap-8 mb-10 md:mb-12 max-w-4xl mx-auto md:max-w-none">
           <div className="flex-1 min-w-[220px] text-center md:text-left">
             <Link to="/" className="inline-flex items-center mb-4">
-              <span className="text-2xl font-bold tracking-tight leading-none">
-                RM<span className="gradient-text">.</span>
-              </span>
+              <Logo className="h-9 w-9" />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
               Crafting exceptional digital experiences with modern technologies and
