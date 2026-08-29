@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { GithubIcon, LinkedinIcon, TwitterIcon, DribbbleIcon } from "../components/ui/SocialIcons";
+import { GithubIcon, LinkedinIcon, FacebookIcon } from "../components/ui/SocialIcons";
 import SectionHeading from "../components/ui/SectionHeading";
 import ContactForm from "../components/contact/ContactForm";
 import Container, { PageHeader } from "../components/layout/Container";
@@ -10,8 +10,7 @@ import { fadeUp } from "../utils/animations";
 const socialLinks = [
   { icon: GithubIcon, href: personalInfo.social.github, label: "GitHub" },
   { icon: LinkedinIcon, href: personalInfo.social.linkedin, label: "LinkedIn" },
-  { icon: TwitterIcon, href: personalInfo.social.twitter, label: "Twitter" },
-  { icon: DribbbleIcon, href: personalInfo.social.dribbble, label: "Dribbble" },
+  { icon: FacebookIcon, href: personalInfo.social.facebook, label: "Facebook" },
 ];
 
 export default function Contact() {

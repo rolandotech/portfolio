@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import { Send, CheckCircle, Mail, Phone, MapPin } from "lucide-react";
 import Button from "../ui/Button";
 import GlassCard from "../ui/GlassCard";
 import { personalInfo } from "../../data/personal";
 import { fadeUp, staggerContainer } from "../../utils/animations";
+
+const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
@@ -16,6 +17,7 @@ const contactInfo = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -25,24 +27,39 @@ export default function ContactForm() {
 
   const onSubmit = async (data) => {
     setStatus("sending");
+    setErrorMessage("");
+
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || "your_service_id",
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "your_template_id",
-        {
-          from_name: data.name,
-          from_email: data.email,
+      const response = await fetch(contactApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
           subject: data.subject,
           message: data.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "your_public_key"
-      );
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message.");
+      }
+
       setStatus("success");
       reset();
       setTimeout(() => setStatus("idle"), 5000);
-    } catch {
+    } catch (error) {
       setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
+      setErrorMessage(
+        error.message ||
+          "Something went wrong. Please try again or email me directly.",
+      );
+      setTimeout(() => {
+        setStatus("idle");
+        setErrorMessage("");
+      }, 6000);
     }
   };
 
@@ -188,7 +205,7 @@ export default function ContactForm() {
 
                 {status === "error" && (
                   <p className="text-red-400 text-sm">
-                    Something went wrong. Please try again or email me directly.
+                    {errorMessage || "Something went wrong. Please try again or email me directly."}
                   </p>
                 )}
 

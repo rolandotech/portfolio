@@ -67,6 +67,7 @@ export default function Hero() {
             >
               <Button
                 href={personalInfo.resumeUrl}
+                download={personalInfo.resumeDownloadName}
                 icon={Download}
                 iconPosition="left"
                 size="lg"

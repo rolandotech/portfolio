@@ -15,11 +15,11 @@ export const personalInfo = {
   location: "Bacolod City, Philippines",
   yearsOfExperience,
   resumeUrl: "/resume.pdf",
+  resumeDownloadName: "Rolando_M_Mendoza_Jr_Resume.pdf",
   social: {
     github: "https://github.com/rolandotech",
     linkedin: "https://www.linkedin.com/in/rolando-mendoza-jr-591b06165/",
-    twitter: "https://twitter.com/rolandomendoza",
-    dribbble: "https://dribbble.com/rolandomendoza",
+    facebook: "https://web.facebook.com/rmjrpro/",
   },
   summary:
     "Full Stack Developer with experience building responsive web apps, React Native mobile applications, and e-commerce platforms. Skilled in Next.js, React, NestJS, Node.js, Shopify, and WordPress — from PSD conversion to production deployment on Vercel and DigitalOcean. Certified in Claude AI and experienced using Cursor for AI-assisted development.",

@@ -11,7 +11,7 @@ A premium, award-winning developer portfolio built with React, Vite, Tailwind CS
 - **Framer Motion** — Animations & transitions
 - **Lucide React** — Icon library
 - **React Hook Form** — Form validation
-- **EmailJS** — Contact form integration
+- **React Email + Resend** — Contact form emails to Gmail
 - **React Helmet Async** — SEO meta tags
 
 ## Features
@@ -23,7 +23,7 @@ A premium, award-winning developer portfolio built with React, Vite, Tailwind CS
 - Project cards with tilt effect, filtering, and modal
 - Services showcase
 - Testimonial slider
-- Contact form with EmailJS integration
+- Contact form with React Email + Resend (delivers to your Gmail)
 - Loading screen, custom cursor, scroll progress bar
 - Fully responsive (desktop, tablet, mobile)
 - Lazy-loaded routes for performance
@@ -45,22 +45,36 @@ npm run build
 npm run preview
 ```
 
-## EmailJS Setup
+## Contact Form Setup (React Email + Resend)
 
-1. Create an account at [EmailJS](https://www.emailjs.com/)
-2. Copy `.env.example` to `.env`
-3. Fill in your EmailJS credentials:
+The contact form sends formatted emails to your Gmail using a [React Email](https://react.email/) template and [Resend](https://resend.com) on a Vercel serverless API route.
+
+1. Create a free account at [Resend](https://resend.com)
+2. Create an API key in the Resend dashboard
+3. Copy `.env.example` to `.env.local` (for Vercel) or `.env`
+4. Add these variables:
 
 ```
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
+RESEND_API_KEY=re_your_api_key_here
+CONTACT_TO_EMAIL=rolandomend23@gmail.com
+RESEND_FROM_EMAIL=onboarding@resend.dev
 ```
+
+5. Deploy the project to [Vercel](https://vercel.com) (required for `/api/contact`)
+6. Add the same environment variables in your Vercel project settings
+
+**Testing:** Resend lets you send to your own Gmail using `onboarding@resend.dev` as the sender. For production, verify a custom domain in Resend and update `RESEND_FROM_EMAIL`.
+
+**Local API testing:** Install Vercel CLI and run `vercel dev` instead of `npm run dev` so `/api/contact` works locally.
+
+Email template: `emails/contact-notification.jsx`
 
 ## Project Structure
 
 ```
 src/
+├── api/               # Vercel serverless contact endpoint
+├── emails/            # React Email templates
 ├── components/
 │   ├── contact/       # Contact form
 │   ├── experience/    # Timeline components

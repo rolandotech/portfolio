@@ -77,16 +77,18 @@ export default function ProjectCard({ project, onClick }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 mt-auto pt-1">
-            <Button
-              href={project.github}
-              variant="ghost"
-              size="sm"
-              icon={GithubIcon}
-              iconPosition="left"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Code
-            </Button>
+            {project.github && (
+              <Button
+                href={project.github}
+                variant="ghost"
+                size="sm"
+                icon={GithubIcon}
+                iconPosition="left"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Code
+              </Button>
+            )}
             <Button
               href={project.live}
               variant="ghost"
@@ -164,9 +166,11 @@ export function ProjectModal({ project, onClose }) {
             </div>
 
             <div className="flex gap-4">
-              <Button href={project.github} icon={GithubIcon} iconPosition="left">
-                View Code
-              </Button>
+              {project.github && (
+                <Button href={project.github} icon={GithubIcon} iconPosition="left">
+                  View Code
+                </Button>
+              )}
               <Button href={project.live} variant="secondary" icon={ExternalLink} iconPosition="left">
                 Live Demo
               </Button>

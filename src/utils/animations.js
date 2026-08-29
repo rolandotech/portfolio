@@ -56,7 +56,9 @@ export const pageTransition = {
   },
 };
 
-export const navLinks = [
+import { features } from "../config/features.js";
+
+const allNavLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Skills", path: "/skills" },
@@ -66,3 +68,7 @@ export const navLinks = [
   { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contact" },
 ];
+
+export const navLinks = allNavLinks.filter(
+  (link) => features.testimonials || link.path !== "/testimonials",
+);

@@ -49,11 +49,13 @@ export default function Button({
   }
 
   if (href) {
+    const isDownload = "download" in props;
+
     return (
       <motion.a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={isDownload ? undefined : "_blank"}
+        rel={isDownload ? undefined : "noopener noreferrer"}
         className={classes}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}

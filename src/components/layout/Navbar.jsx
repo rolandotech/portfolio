@@ -67,7 +67,7 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center justify-center shrink-0 gap-2">
-            <ThemeToggle className="hidden lg:inline-flex" />
+            <ThemeToggle />
 
             <Link
               to="/contact"
@@ -75,8 +75,6 @@ export default function Navbar() {
             >
               Hire Me
             </Link>
-
-            <ThemeToggle className="lg:hidden" />
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -118,9 +116,6 @@ export default function Navbar() {
                   </Link>
                 </motion.li>
               ))}
-              <li className="pt-3 w-full max-w-sm flex justify-center">
-                <ThemeToggle />
-              </li>
               <li className="pt-3 w-full max-w-sm">
                 <Link
                   to="/contact"

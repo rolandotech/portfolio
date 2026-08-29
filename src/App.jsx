@@ -4,6 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Layout from "./components/layout/Layout";
 import LoadingScreen from "./components/layout/LoadingScreen";
+import { features } from "./config/features.js";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -47,7 +48,9 @@ export default function App() {
                 <Route path="experience" element={<Experience />} />
                 <Route path="projects" element={<Projects />} />
                 <Route path="services" element={<Services />} />
-                <Route path="testimonials" element={<Testimonials />} />
+                {features.testimonials && (
+                  <Route path="testimonials" element={<Testimonials />} />
+                )}
                 <Route path="contact" element={<Contact />} />
               </Route>
             </Routes>

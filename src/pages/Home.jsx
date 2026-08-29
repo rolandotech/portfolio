@@ -10,6 +10,7 @@ import Button from "../components/ui/Button";
 import Container, { Section, FlexCards, SectionAction } from "../components/layout/Container";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { features } from "../config/features.js";
 import { personalInfo } from "../data/personal";
 import { skillCategories } from "../data/skills";
 import { projects } from "../data/projects";
@@ -119,16 +120,18 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <SectionHeading
-            subtitle="Testimonials"
-            title="What Clients Say"
-            description="Trusted by companies and founders worldwide."
-          />
-          <TestimonialSlider testimonials={testimonials} />
-        </Container>
-      </Section>
+      {features.testimonials && (
+        <Section>
+          <Container>
+            <SectionHeading
+              subtitle="Testimonials"
+              title="What Clients Say"
+              description="Trusted by companies and founders worldwide."
+            />
+            <TestimonialSlider testimonials={testimonials} />
+          </Container>
+        </Section>
+      )}
 
       <Section>
         <Container narrow>

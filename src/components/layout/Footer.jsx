@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon, DribbbleIcon } from "../ui/SocialIcons";
+import { GithubIcon, LinkedinIcon, FacebookIcon } from "../ui/SocialIcons";
 import Container from "./Container";
 import { personalInfo } from "../../data/personal";
 
 const socialIcons = [
   { icon: GithubIcon, href: personalInfo.social.github, label: "GitHub" },
   { icon: LinkedinIcon, href: personalInfo.social.linkedin, label: "LinkedIn" },
-  { icon: TwitterIcon, href: personalInfo.social.twitter, label: "Twitter" },
-  { icon: DribbbleIcon, href: personalInfo.social.dribbble, label: "Dribbble" },
+  { icon: FacebookIcon, href: personalInfo.social.facebook, label: "Facebook" },
 ];
 
 export default function Footer() {
