@@ -29,8 +29,10 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-strong shadow-lg shadow-black/20" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        scrolled || isOpen
+          ? "nav-solid shadow-lg shadow-black/20"
+          : "bg-transparent"
       }`}
     >
       <div className={`relative mx-auto w-full ${SITE_MAX_WIDTH} px-6 lg:px-8`}>
@@ -92,7 +94,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-strong border-t border-white/5"
+            className="lg:hidden nav-solid border-t border-white/5"
           >
             <ul className={`mx-auto flex ${SITE_MAX_WIDTH} flex-col items-center gap-2 px-6 py-5`}>
               {navLinks.map((link, i) => (
