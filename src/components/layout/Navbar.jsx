@@ -39,7 +39,7 @@ export default function Navbar() {
             to="/"
             className={`inline-flex items-center shrink-0 ${headerLinkPadding} -ml-3 lg:ml-0`}
           >
-            <Logo className="h-9 w-9" />
+            <Logo className="h-10 w-10" />
           </Link>
 
           <ul className="hidden lg:flex flex-1 items-center justify-evenly max-w-4xl w-full mx-auto px-4">

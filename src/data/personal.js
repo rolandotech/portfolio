@@ -1,4 +1,15 @@
 import { yearsOfExperience } from "./career.js";
+import { projects } from "./projects.js";
+
+const personalProjectTitles = new Set(["Jay Index"]);
+
+const completedProjects = projects.length;
+const happyClients = projects.filter(
+  (project) => !personalProjectTitles.has(project.title)
+).length;
+const technologiesUsed = new Set(
+  projects.flatMap((project) => project.technologies)
+).size;
 
 export const personalInfo = {
   name: "Rolando M. Mendoza Jr.",
@@ -27,9 +38,9 @@ export const personalInfo = {
     "To deliver clean, scalable, and user-focused digital products by combining strong frontend craft with reliable backend systems, modern AI tooling, and smooth deployment workflows.",
   stats: [
     { label: "Years Experience", value: yearsOfExperience, suffix: "+" },
-    { label: "Projects Completed", value: 50, suffix: "+" },
-    { label: "Happy Clients", value: 30, suffix: "+" },
-    { label: "Technologies", value: 25, suffix: "+" },
+    { label: "Projects Completed", value: completedProjects, suffix: "" },
+    { label: "Happy Clients", value: happyClients, suffix: "" },
+    { label: "Technologies", value: technologiesUsed, suffix: "" },
   ],
   certifications: [
     {

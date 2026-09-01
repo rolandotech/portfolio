@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMouseParallax";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
@@ -11,6 +12,7 @@ export default function CustomCursor() {
     if (!isDesktop) return;
 
     const handleMouseMove = (e) => {
+      setIsVisible(true);
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -33,7 +35,7 @@ export default function CustomCursor() {
     };
   }, [isDesktop]);
 
-  if (!isDesktop) return null;
+  if (!isDesktop || !isVisible) return null;
 
   return (
     <>
