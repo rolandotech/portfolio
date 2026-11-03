@@ -10,6 +10,7 @@ export const projects = [
     category: "Web",
     technologies: ["React", "Next.js", "Vercel", "Tailwind CSS", "Responsive UI"],
     live: "https://www.telesynergycorp.com",
+    embed: false,
     featured: true,
   },
   {
@@ -21,6 +22,7 @@ export const projects = [
     category: "Shopify",
     technologies: ["Shopify", "Liquid", "JavaScript", "HTML", "CSS"],
     live: "https://www.septichelper2000.com",
+    embed: false,
     featured: true,
   },
   {
@@ -32,6 +34,7 @@ export const projects = [
     category: "Web",
     technologies: ["React", "JavaScript", "REST API", "Responsive Design"],
     live: "https://salesgen.net",
+    embed: false,
     featured: true,
   },
   {
@@ -43,6 +46,7 @@ export const projects = [
     category: "Shopify",
     technologies: ["Shopify", "Liquid", "JavaScript", "SCSS"],
     live: "https://venturiboldbrew.com",
+    embed: false,
     featured: false,
   },
   {
@@ -54,6 +58,7 @@ export const projects = [
     category: "Shopify",
     technologies: ["Shopify", "Liquid", "JavaScript", "Responsive Design"],
     live: "https://heartbrandbeef.com",
+    embed: false,
     featured: false,
   },
   {
@@ -65,6 +70,7 @@ export const projects = [
     category: "Web",
     technologies: ["React", "JavaScript", "Vercel", "SCSS"],
     live: "https://jayindex.vercel.app",
+    embed: true,
     featured: false,
   },
   {
@@ -77,6 +83,7 @@ export const projects = [
     technologies: ["React", "JavaScript", "Vercel", "Responsive UI"],
     github: "https://github.com/rolandotech/swampcampingsite",
     live: "https://swampcampingsite.vercel.app",
+    embed: true,
     featured: false,
   },
   {
@@ -87,7 +94,8 @@ export const projects = [
     image: placeholderImage,
     category: "WordPress",
     technologies: ["WordPress", "PHP", "HTML", "CSS", "JavaScript"],
-    live: "http://rcourihay.com",
+    live: "https://rcourihay.com",
+    embed: true,
     featured: false,
   },
 ];

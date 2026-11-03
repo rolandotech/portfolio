@@ -4,6 +4,7 @@ import { ExternalLink, X } from "lucide-react";
 import { GithubIcon } from "../ui/SocialIcons";
 import Button from "../ui/Button";
 import { fadeUp, scaleIn } from "../../utils/animations";
+import ProjectPreview from "./ProjectPreview";
 
 export default function ProjectCard({ project, onClick }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -30,17 +31,16 @@ export default function ProjectCard({ project, onClick }) {
       className="group cursor-pointer flex"
     >
       <div className="glass rounded-2xl overflow-hidden hover:glow-blue transition-all duration-500 flex flex-col w-full">
-        <div className="relative overflow-hidden aspect-[16/10] shrink-0">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            loading="lazy"
+        <div className="relative w-full shrink-0 overflow-hidden pt-[62.5%]">
+          <ProjectPreview
+            src={project.live}
+            title={project.title}
+            embed={project.embed !== false}
+            className="absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {project.featured && (
-            <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full bg-accent-indigo/80 text-white backdrop-blur-sm">
+            <span className="absolute top-11 left-3 z-20 px-3 py-1 text-xs font-medium rounded-full bg-accent-indigo/80 text-white backdrop-blur-sm">
               Featured
             </span>
           )}
@@ -127,10 +127,12 @@ export function ProjectModal({ project, onClose }) {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="relative">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full aspect-[16/9] object-cover rounded-t-2xl"
+            <ProjectPreview
+              src={project.live}
+              title={project.title}
+              embed={project.embed !== false}
+              interactive
+              className="relative w-full overflow-hidden pt-[56.25%] rounded-t-2xl"
             />
             <button
               onClick={onClose}
